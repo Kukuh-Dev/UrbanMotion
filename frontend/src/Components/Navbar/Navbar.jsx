@@ -12,6 +12,7 @@ export const Navbar = ({ className, ...props }) => {
 
   const navigate = useNavigate(); // Hook untuk navigasi antar halaman
   const location = useLocation(); // Hook untuk mendapatkan informasi lokasi saat ini
+  const role = localStorage.getItem("role"); // untuk mendapatkan role dari user yang sedang login
 
   // Menambahkan event listener untuk menambahkan shadow saat scroll
   useEffect(() => {
@@ -41,7 +42,11 @@ export const Navbar = ({ className, ...props }) => {
 
   // Fungsi untuk navigasi ke halaman profil
   const handleProfileClick = () => {
-    navigate("/my-account");
+    if (role === "user") {
+      navigate("/my-account");
+    } else {
+      navigate("/admin/dashboard");
+    }
   };
 
   // Fungsi untuk navigasi ke halaman tertentu dan menutup menu dropdown/menu mobile

@@ -14,7 +14,7 @@ const Register = async (req, res, next) => {
         // Check if email already exists
         const existingUser = await User.findOne({ where: { email } });
         if (existingUser) {
-            return res.status(400).json({ message: 'Email already in use' });
+            return res.status(400).json({ message: "Email sudah terdaftar" });
         }
 
         // Hash the password before saving it
@@ -48,17 +48,17 @@ const Login = async (req, res, next) => {
         const user = await User.findOne({ where: { email } });
 
         if (!user) {
-            return res.status(400).json({ message: 'User not found' });
+            return res.status(400).json({ message: 'Data user tidak ditemukan' });
         }
 
         if (!user.password) {
-          return res.status(400).json({ message: 'user registered by google' });
+          return res.status(400).json({ message: 'Email terdaftar melalui google' });
         }
 
         // Compare the hashed password with the provided password
         const isPasswordValid = ComparePassword(user.password, password);
         if (!isPasswordValid) {
-            return res.status(400).json({ message: 'Invalid password' });
+            return res.status(400).json({ message: 'Email atau password salah' });
         }
 
         // Generate a JWT token for the user

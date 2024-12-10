@@ -16,13 +16,13 @@ const CreateBooking = async(req, res, next) => {
 
         if (!vehicle) {
             return res.status(404).json({
-                message: "Vehicle not found",
+                message: "Data kendaraan tidak ditemukan",
             })
         }
 
         if (vehicle.status === "booking") {
             return res.status(400).json({
-                message: "Vehicle is already booking",
+                message: "Kendaraan sedang dibooking oleh pengguna lain. Silakan pilih kendaraan lain atau coba lagi nanti.",
             })
         }
 
@@ -109,7 +109,7 @@ const GetBookingByID = async(req, res, next) => {
 
         if (!booking) { 
             return res.status(404).json({
-                message: "Booking not found",
+                message: "data booking tidak ditemukan",
             })
         }
 
@@ -182,7 +182,7 @@ const ConfirmBookingPayment = async(req, res, next) => {
                     await Billing.update({status: "accepted"}, {where: {booking_id: bookingID}, transaction: t})
                      // Retrieve the updated booking
                     const booking = await Booking.findOne({ where: { id: bookingID }, transaction: t });
-                    await Vehicle.update({status: "booking"}, {where: {id: booking.vehicle_id}, transaction: t})
+                    await Vehicle.update({status: "Booking"}, {where: {id: booking.vehicle_id}, transaction: t})
                     res.status(200).json({
                         "fraud_status": "accept",
                         "order_id": bookingID
@@ -197,7 +197,7 @@ const ConfirmBookingPayment = async(req, res, next) => {
                  // Retrieve the updated booking
                 const booking = await Booking.findOne({ where: { id: bookingID }, transaction: t });
                 await Billing.update({status: "accepted"}, {where: {booking_id: bookingID}, transaction: t})
-                await Vehicle.update({status: "booking"}, {where: {id: booking.vehicle_id}, transaction: t})
+                await Vehicle.update({status: "Booking"}, {where: {id: booking.vehicle_id}, transaction: t})
                 res.status(200).json({
                     "fraud_status": "accept",
                     "order_id": bookingID

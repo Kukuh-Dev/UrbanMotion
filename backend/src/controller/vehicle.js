@@ -100,7 +100,7 @@ const DeleteVehicle = async (req, res, next) => {
 
 const UpdateVehicle = async (req, res, next) => {
     const {vehicleID} = req.params
-    const {name, type, category, transmission_type, passenger_capacity, price,  air_conditioner, doors} = req.body    
+    const {name, type, category, transmission_type, passenger_capacity, price,  air_conditioner, doors, status} = req.body    
     const {file} = req
 
     try {
@@ -114,6 +114,7 @@ const UpdateVehicle = async (req, res, next) => {
             price,
             air_conditioner: air_conditioner === 'True' ? true : false,
             doors,
+            status
            }, {where: {id: vehicleID}})
            console.log(vehicle)
             return res.status(200).json({
@@ -133,6 +134,7 @@ const UpdateVehicle = async (req, res, next) => {
                 price,
                 air_conditioner: air_conditioner === 'True' ? true : false,
                 doors,
+                status,
                 image: `uploads/${file.filename}`
             }, {where: {id: vehicleID}})
 

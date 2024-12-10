@@ -144,6 +144,7 @@ export default function Sewa() {
         window.location.href = response.data.data.chargeResponse.redirect_url;
      } catch (error) {
        console.log(error);
+       alert("Error: " + error.response ? error.response.data.message : error.message);
      }
   };
 

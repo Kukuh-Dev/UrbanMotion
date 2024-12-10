@@ -123,7 +123,7 @@ const MyAccount = () => {
       window.location.reload();
 
     } catch (error) {
-      alert("Error: " + error.message);
+      alert("Error: " + error.response ? error.response.data.message : error.message);
     }
   }
 

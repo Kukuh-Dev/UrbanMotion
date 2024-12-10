@@ -9,7 +9,7 @@ const GetUserByID = async (req, res, next) => {
 
         if (!user) {
             return res.status(404).json({
-                message: "User not found",
+                message: "Data user tidak ditemukan",
             })
         }
           
@@ -37,7 +37,7 @@ const UpdateUser = async (req, res, next) => {
 
         if (!user) {
             return res.status(404).json({
-                message: "User not found",
+                message: "Data user tidak ditemukan",
             })
         }
         
