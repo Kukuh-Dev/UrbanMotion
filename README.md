@@ -48,7 +48,7 @@ Clone this repository to your local machine:
         npm run seed-up
         ```
         
-    5. Launch the App
+5. Launch the App
 
     Once the setup is complete, you can start the app by running:
 
@@ -80,5 +80,5 @@ Clone this repository to your local machine:
     ```
 
 ### 4. Access the Application
-Frontend will be available at: http://localhost:5173 
-Backend will be available at: http://localhost:5000 (or as per your configuration) 
+    Frontend will be available at: http://localhost:5173 
+    Backend will be available at: http://localhost:5000 (or as per your configuration) 
