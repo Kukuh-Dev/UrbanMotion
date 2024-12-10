@@ -18,13 +18,13 @@ Clone this repository to your local machine:
 
 ### 2. Setup Backend 
 
-    1. Navigate to the backend directory
+1. Navigate to the backend directory
     
     ```bash
     cd backend
     ```
 
-    2. Install Dependencies
+2. Install Dependencies
 
     Run the following command to install all necessary packages:
 
@@ -32,11 +32,11 @@ Clone this repository to your local machine:
     npm install
     ```
 
-    3. Set Up Your `.env` File
+3. Set Up Your `.env` File
 
     Locate the .env.sample file in the project’s root directory. Rename it to .env and configure the necessary environment variables (e.g., database connection strings, API keys).
 
-    4. Run Migrations and Seed the Database
+4. Run Migrations and Seed the Database
 
     Ensure your database is up and running, then execute the following commands:
     1. Run Migrations:
@@ -57,13 +57,13 @@ Clone this repository to your local machine:
     ```
 
 ### 3. Setup Frontend 
-    1. Navigate to the frontend directory
+1. Navigate to the frontend directory
     
     ```bash
     cd frontend
     ```
 
-    2. Install Dependencies
+2. Install Dependencies
 
     Run the following command to install all necessary packages:
 
@@ -71,7 +71,7 @@ Clone this repository to your local machine:
     npm install
     ```
         
-    3. Launch the App
+3. Launch the App
 
     Once the setup is complete, you can start the app by running:
 
